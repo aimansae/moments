@@ -1,10 +1,14 @@
-import "./App.css";
+import styles from './App.module.css'
+
+import NavBar from './components/NavBar';
+import 'bootstrap/dist/js/bootstrap.bundle';
+
 
 function App() {
   return (
-    <div className="App">
+    <div className={styles.App}>
       <div>
-        <h1>Hello!</h1>
+      <NavBar/>
       </div>
     </div>
   );
