@@ -14,6 +14,7 @@ const useClickOutsideToggle = () => {
             }
         }
         document.addEventListener('mouseup',handleClickOutside )
+        //removing event listener
         return() => {
             document.removeEventListener('mouseup',handleClickOutside )
         }
