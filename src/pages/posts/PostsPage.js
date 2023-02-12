@@ -18,12 +18,15 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 import { PopoverTitle } from "react-bootstrap";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 
 function PostsPage({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const [query, setQuery] = useState("");
+  const currentUser = useCurrentUser();
+
 
   const { pathname } = useLocation();
 
@@ -34,7 +37,7 @@ function PostsPage({ message, filter = "" }) {
         setPosts(data);
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
+        //console.log(err);
       }
     };
     setHasLoaded(false);
@@ -45,7 +48,7 @@ function PostsPage({ message, filter = "" }) {
       clearTimeout(timer)
     }
 
-  }, [filter, query, pathname]);
+  }, [filter, query, pathname,currentUser]);
 
   return (
     <Row className="h-100">
